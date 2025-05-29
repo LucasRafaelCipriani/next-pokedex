@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { itemsPerPage } from '@/constants/constants';
 
 const Pagination = ({
   count,
@@ -8,7 +9,7 @@ const Pagination = ({
   count: number;
   currentPage: number;
 }) => {
-  const totalPages = Math.ceil(count / 20);
+  const totalPages = Math.ceil(count / itemsPerPage);
 
   const getPages = () => {
     const pages = [];
@@ -35,17 +36,23 @@ const Pagination = ({
 
   return (
     <div className="flex justify-center">
-      {getPages().map((page, i) => (
-        <Link
-          key={i}
-          href={`/page/${page}`}
-          className={`border border-black p-2 ${
-            currentPage === page ? 'bg-gray-500 text-white' : ''
-          }`}
-        >
-          {page}
-        </Link>
-      ))}
+      {getPages().map((page, i) =>
+        typeof page === 'number' ? (
+          <Link
+            key={i}
+            href={`/page/${page}`}
+            className={`border border-black p-2 ${
+              currentPage === page ? 'bg-gray-500 text-white' : ''
+            }`}
+          >
+            {page}
+          </Link>
+        ) : (
+          <button key={i} disabled className={'border border-black p-2'}>
+            {page}
+          </button>
+        )
+      )}
     </div>
   );
 };

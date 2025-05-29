@@ -1,9 +1,10 @@
 import Pagination from '@/components/Pagination';
 import PokemonBox from '@/components/PokemonBox';
+import { itemsPerPage } from '@/constants/constants';
 
 export default async function Home() {
   const res = await fetch(
-    'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0'
+    `https://pokeapi.co/api/v2/pokemon/?limit=${itemsPerPage}&offset=0`
   );
   const data = await res.json();
 
