@@ -1,9 +1,11 @@
 import Pagination from '@/components/Pagination';
 import PokemonBox from '@/components/PokemonBox';
 
-export default async function Home() {
+export default async function Page({ params }: { params: { id: string } }) {
+  const { id } = await params;
+  const pageId = Number(id ?? 1);
   const res = await fetch(
-    'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0'
+    `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${20 * (pageId - 1)}`
   );
   const data = await res.json();
 
@@ -17,7 +19,7 @@ export default async function Home() {
           <PokemonBox name={poke.name} key={index} url={poke.url} />
         ))}
       </div>
-      <Pagination count={data.count} currentPage={1} />
+      <Pagination count={data.count} currentPage={pageId} />
     </section>
   );
 }
