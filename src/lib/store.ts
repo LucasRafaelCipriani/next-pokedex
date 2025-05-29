@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import mainSlice from './slices/mainSlice';
 
 export const makeStore = () => {
-  console.log(process.env.NODE_ENV);
   return configureStore({
     reducer: {
       main: mainSlice,

@@ -4,6 +4,13 @@ interface PokemonType {
   };
 }
 
+interface PokemonAbility {
+  ability: {
+    name: string;
+  };
+  is_hidden: boolean;
+}
+
 interface PokemonStat {
   base_stat: number;
   effort: number;
@@ -20,6 +27,7 @@ export interface Pokemon {
     height: number;
     weight: number;
     types: PokemonType[];
+    abilities: PokemonAbility[];
     cries: {
       legacy: string;
       latest: string;

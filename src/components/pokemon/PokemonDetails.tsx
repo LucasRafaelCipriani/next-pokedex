@@ -6,13 +6,12 @@ import TypeBadge from './TypeBadge';
 import PokemonStats from './PokemonStats';
 import PokemonCries from './PokemonCries';
 import { Pokemon } from '@/types/Pokemon';
+import PokemonAbilities from './PokemonAbilities';
 
 const PokemonDetails: React.FC<Pokemon> = ({ pokemon }) => {
-  console.log(pokemon);
-
   return (
-    <section className="flex flex-col lg:flex-row gap-x-9 py-6 px-4 gap-y-6">
-      <div className="border rounded-2xl p-5 relative">
+    <section className="flex flex-col md:flex-row gap-x-9 py-[50px] lg:py-[80px] px-4 gap-y-6">
+      <div className="border w-full md:w-2/4 sm:max-w-[500px] mx-auto rounded-2xl p-5 relative h-fit">
         <span className="absolute text-base font-bold right-[15px] top-[6px]">
           ID: {pokemon.id}
         </span>
@@ -24,12 +23,12 @@ const PokemonDetails: React.FC<Pokemon> = ({ pokemon }) => {
           priority
         />
       </div>
-      <div>
-        <h2 className="text-center text-[30px] font-bold capitalize lg:text-left">
+      <div className="w-full md:w-2/4 mx-auto">
+        <h2 className="text-center text-[30px] font-bold capitalize md:text-left">
           {pokemon.name}
         </h2>
         <div className="flex flex-col gap-y-5 mt-5">
-          <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             {pokemon.types.map(
               (
                 { type }: { type: { name: string } },
@@ -47,6 +46,7 @@ const PokemonDetails: React.FC<Pokemon> = ({ pokemon }) => {
             </div>
           </div>
           <PokemonStats pokemon={pokemon} />
+          <PokemonAbilities pokemon={pokemon} />
           <PokemonCries pokemon={pokemon} />
         </div>
       </div>

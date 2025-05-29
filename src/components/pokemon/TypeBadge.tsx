@@ -7,7 +7,7 @@ const TypeBadge = ({ type }: { type: string }) => {
 
   return (
     <div
-      className="py-1 px-2 text-white text-center rounded-4xl uppercase text-[12px] min-w-[70px]"
+      className="py-1 px-2 text-white text-center rounded-4xl uppercase text-[12px] min-w-[70px]  w-fit"
       style={{ backgroundColor: typeColor }}
     >
       {type}

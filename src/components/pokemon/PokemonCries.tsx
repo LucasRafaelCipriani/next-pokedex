@@ -13,7 +13,7 @@ const PokemonCries = ({ pokemon }: Pokemon) => {
           <div>
             <audio ref={legacyCryRef} src={pokemon.cries.legacy} />
             <button
-              className="bg-blue-400 text-white rounded-2xl border py-2 px-4"
+              className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800"
               onClick={() => {
                 legacyCryRef.current?.play();
               }}
@@ -25,7 +25,7 @@ const PokemonCries = ({ pokemon }: Pokemon) => {
         <div>
           <audio ref={latestCryRef} src={pokemon.cries.latest} />
           <button
-            className="bg-blue-400 text-white rounded-2xl border py-2 px-4"
+            className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800"
             onClick={() => {
               latestCryRef.current?.play();
             }}
