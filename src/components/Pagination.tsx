@@ -42,7 +42,9 @@ const Pagination = ({
             key={i}
             href={`/page/${page}`}
             className={`border border-black p-2 ${
-              currentPage === page ? 'bg-gray-500 text-white' : ''
+              currentPage === page
+                ? 'bg-gray-500 text-white pointer-events-none'
+                : ''
             }`}
           >
             {page}
