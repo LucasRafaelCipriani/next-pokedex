@@ -41,7 +41,7 @@ const Pagination = ({
           <Link
             key={i}
             href={`/page/${page}`}
-            className={`border border-black p-2 ${
+            className={`border border-black text-center p-2 min-w-[36px] ${
               currentPage === page
                 ? 'bg-gray-500 text-white pointer-events-none'
                 : ''
@@ -50,7 +50,11 @@ const Pagination = ({
             {page}
           </Link>
         ) : (
-          <button key={i} disabled className={'border border-black p-2'}>
+          <button
+            key={i}
+            disabled
+            className={'border border-black text-center p-2 min-w-[36px]'}
+          >
             {page}
           </button>
         )
