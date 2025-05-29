@@ -1,4 +1,4 @@
-import PokemonGrid from '@/components/pokemon/PokemonGrid';
+import PokemonGrid from '@/components/pokemon/PokemonList';
 import { itemsPerPage } from '@/constants/constants';
 
 export default async function Page({ params }: { params: { id: string } }) {

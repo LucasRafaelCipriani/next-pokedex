@@ -12,7 +12,7 @@ const PokemonBox = ({ name, url }: { name: string; url: string }) => {
 
   return (
     <Link
-      href={`/pokemon/${id}`}
+      href={`/pokemon/${name}`}
       className="flex items-center flex-col border rounded-3xl hover:bg-gray-600 hover:text-white p-2"
     >
       <Image
@@ -20,6 +20,7 @@ const PokemonBox = ({ name, url }: { name: string; url: string }) => {
         height={120}
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
         alt={name}
+        priority
       />
       <h2 className="capitalize text-base md:text-[20px] font-bold text-center">
         {name}

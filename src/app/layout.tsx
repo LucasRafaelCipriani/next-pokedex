@@ -19,8 +19,10 @@ export default function RootLayout({
       <body>
         <Header />
         <StoreProvider>
-          <main className="min-h-[calc(100vh-81px)] md:max-w-[80vw] mx-auto">
-            {children}
+          <main className="bg-gray-500">
+            <div className="min-h-[calc(100vh-81px)] md:max-w-[80vw] mx-auto bg-white">
+              {children}
+            </div>
           </main>
         </StoreProvider>
         <Footer />

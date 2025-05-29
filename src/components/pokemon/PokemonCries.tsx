@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Pokemon } from '@/types/Pokemon';
+import Button from '../Button';
 
 const PokemonCries = ({ pokemon }: Pokemon) => {
   const legacyCryRef = useRef<HTMLAudioElement>(null);
@@ -12,26 +13,24 @@ const PokemonCries = ({ pokemon }: Pokemon) => {
         {pokemon.cries.legacy && (
           <div>
             <audio ref={legacyCryRef} src={pokemon.cries.legacy} />
-            <button
-              className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800"
+            <Button
               onClick={() => {
                 legacyCryRef.current?.play();
               }}
             >
               Legacy
-            </button>
+            </Button>
           </div>
         )}
         <div>
           <audio ref={latestCryRef} src={pokemon.cries.latest} />
-          <button
-            className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800"
+          <Button
             onClick={() => {
               latestCryRef.current?.play();
             }}
           >
             Latest
-          </button>
+          </Button>
         </div>
       </div>
     </div>

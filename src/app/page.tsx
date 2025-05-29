@@ -1,4 +1,4 @@
-import PokemonGrid from '@/components/pokemon/PokemonGrid';
+import PokemonList from '@/components/pokemon/PokemonList';
 import { itemsPerPage } from '@/constants/constants';
 
 export default async function Home() {
@@ -7,5 +7,5 @@ export default async function Home() {
   );
   const data = await res.json();
 
-  return <PokemonGrid data={data} />;
+  return <PokemonList data={data} />;
 }

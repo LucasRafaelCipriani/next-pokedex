@@ -10,8 +10,8 @@ import PokemonAbilities from './PokemonAbilities';
 
 const PokemonDetails: React.FC<Pokemon> = ({ pokemon }) => {
   return (
-    <section className="flex flex-col md:flex-row gap-x-9 py-[50px] lg:py-[80px] px-4 gap-y-6">
-      <div className="border w-full md:w-2/4 sm:max-w-[500px] mx-auto rounded-2xl p-5 relative h-fit">
+    <section className="flex flex-col md:flex-row gap-x-[50px] py-[50px] lg:py-[80px] px-4 gap-y-6 justify-center">
+      <div className="border w-full md:w-2/4 sm:max-w-[500px] rounded-2xl p-5 relative h-fit">
         <span className="absolute text-base font-bold right-[15px] top-[6px]">
           ID: {pokemon.id}
         </span>
@@ -23,7 +23,7 @@ const PokemonDetails: React.FC<Pokemon> = ({ pokemon }) => {
           priority
         />
       </div>
-      <div className="w-full md:w-2/4 mx-auto">
+      <div className="w-full md:w-2/4">
         <h2 className="text-center text-[30px] font-bold capitalize md:text-left">
           {pokemon.name}
         </h2>
