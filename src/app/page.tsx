@@ -4,7 +4,7 @@ import { itemsPerPage } from '@/constants/constants';
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { page: string; search: string };
+  searchParams: Promise<{ page: string; search: string }>;
 }) {
   const page = Number((await searchParams).page ?? 1);
   const search = (await searchParams).search ?? '';
