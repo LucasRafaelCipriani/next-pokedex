@@ -136,7 +136,7 @@ const PokemonList: React.FC<PokemonGridProps> = ({
           </Button>
         </form>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 mb-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-[1600px]:!grid-cols-6 gap-5 mb-10">
         {pokes.map((poke, index) => (
           <PokemonBox name={poke.name} key={index} url={poke.url} />
         ))}
