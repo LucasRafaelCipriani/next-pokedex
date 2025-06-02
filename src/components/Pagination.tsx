@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { itemsPerPage } from '@/constants/constants';
 
@@ -9,9 +9,9 @@ const Pagination = ({
   count: number;
   currentPage: number;
 }) => {
-  const totalPages = Math.ceil(count / itemsPerPage);
+  const totalPages = useMemo(() => Math.ceil(count / itemsPerPage), [count]);
 
-  const getPages = () => {
+  const getPages = useCallback(() => {
     const pages = [];
 
     if (totalPages <= 7) {
@@ -32,7 +32,7 @@ const Pagination = ({
     }
 
     return pages;
-  };
+  }, [currentPage, totalPages]);
 
   return (
     <div className="flex justify-center">
@@ -40,7 +40,7 @@ const Pagination = ({
         typeof page === 'number' ? (
           <Link
             key={i}
-            href={`/page/${page}`}
+            href={`?page=${page}`}
             className={`border border-black text-center p-2 min-w-[36px] ${
               currentPage === page
                 ? 'bg-gray-500 text-white pointer-events-none'

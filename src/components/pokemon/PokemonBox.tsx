@@ -20,7 +20,8 @@ const PokemonBox = ({ name, url }: { name: string; url: string }) => {
         height={120}
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
         alt={name}
-        priority
+        loading="lazy"
+        style={{ width: 'auto' }}
       />
       <h2 className="capitalize text-base md:text-[20px] font-bold text-center">
         {name}

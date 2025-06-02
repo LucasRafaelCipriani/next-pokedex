@@ -1,17 +1,14 @@
 import React from 'react';
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
 };
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, type }) => {
+const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
   return (
     <button
-      className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800"
-      onClick={onClick}
-      type={type}
+      className="bg-blue-400 text-white rounded-2xl border py-2 px-4 cursor-pointer hover:bg-blue-800 disabled:bg-gray-400 disabled:pointer-events-none"
+      {...rest}
     >
       {children}
     </button>

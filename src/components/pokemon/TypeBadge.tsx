@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { pokemonTypeColors } from '@/constants/constants';
 
 const TypeBadge = ({ type }: { type: string }) => {
   const key = type.toLowerCase() as keyof typeof pokemonTypeColors;
-  const typeColor = pokemonTypeColors[key] || '#777';
+  const typeColor = useMemo(() => pokemonTypeColors[key] || '#777', [key]);
 
   return (
     <div
