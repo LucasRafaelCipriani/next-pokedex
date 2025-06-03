@@ -21,6 +21,7 @@ const PokemonBox = ({ name, url }: { name: string; url: string }) => {
 
   return (
     <Link
+      data-testid="pokemonBox"
       href={`/pokemon/${name}`}
       className="flex items-center flex-col border rounded-3xl hover:bg-gray-600 hover:text-white p-2 justify-between"
     >

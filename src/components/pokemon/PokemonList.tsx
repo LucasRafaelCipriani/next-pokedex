@@ -114,10 +114,16 @@ const PokemonList: React.FC<PokemonGridProps> = ({
   return (
     <section className="px-6 py-[50px] lg:py-[80px]">
       <div className="flex flex-col lg:flex-row justify-between lg:items-center mb-7">
-        <h2 className="text-[32px] font-bold mb-4">Pokémon List</h2>
+        <h2
+          className="text-[32px] font-bold mb-4"
+          data-testid="pokemonListHeading"
+        >
+          Pokémon List
+        </h2>
         <form
           onSubmit={formSubmitHandler}
           className="flex gap-x-2 items-center border rounded-lg p-2 w-fit"
+          data-testid="searchForm"
         >
           <label htmlFor="search" className="text-base">
             Search:
@@ -126,17 +132,22 @@ const PokemonList: React.FC<PokemonGridProps> = ({
             id="search"
             className="border-b outline-none"
             value={search}
+            data-testid="searchInput"
             onChange={(e) => setSearch(e.target.value)}
           />
           <Button
             type="submit"
+            data-testid="searchBtn"
             disabled={search.length > 0 && search.length < 3}
           >
             Search
           </Button>
         </form>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-[1600px]:!grid-cols-6 gap-5 mb-10">
+      <div
+        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-[1600px]:!grid-cols-6 gap-5 mb-10"
+        data-testid="pokemonList"
+      >
         {pokes.map((poke, index) => (
           <PokemonBox name={poke.name} key={index} url={poke.url} />
         ))}

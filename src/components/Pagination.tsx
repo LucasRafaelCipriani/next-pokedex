@@ -35,7 +35,7 @@ const Pagination = ({
   }, [currentPage, totalPages]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center" data-testid="pagination">
       {getPages().map((page, i) =>
         typeof page === 'number' ? (
           <Link
